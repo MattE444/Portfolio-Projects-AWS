@@ -7,6 +7,8 @@ I decided I wanted to add a feedback form to my website so potential employers c
 - S3
 - SES
 - Lambda
+- IAM
+- API Gateway
 
 ## Steps to complete:
 1. Create the S3 bucket
@@ -16,17 +18,21 @@ I decided I wanted to add a feedback form to my website so potential employers c
    - OK this did not go well.
    - See issues below for more details but we are eliminating the text message part of the project as its a lot more difficult than I would have guessed.
 3. SES setup
-  - Again I had to register my email address.  I was a little unsure if I was about to go down the same rabbithole as the text messages but thankfully no.
-  - Added my email address to SES, was sent a verification email and clicked on the link to complete the registration.
+   - Again I had to register my email address.  I was a little unsure if I was about to go down the same rabbithole as the text messages but thankfully no.
+   - Added my email address to SES, was sent a verification email and clicked on the link to complete the registration.
 4. Create the Lambda Function
-  - Created a simple lambda function
-  - Code (python) was added courtesy of ChatGPT again.  I did need to add my email address and S3 location for the submissions archive.
+   - Created a simple lambda function
+   - Code (python) was added courtesy of ChatGPT again.  I did need to add my email address and S3 location for the submissions archive.
 5. Set Lambda IAM permissions
-  - Added both S3 and SES full access permissions to the role that was created when I created the Lambda function.
+   - Added both S3 and SES full access permissions to the role that was created when I created the Lambda function.
 6. Create API Gateway
-  - I created an HTTP API
-  - Added my Lambda from above for the integration
-  - Added a route with method: POST and path: feedback/
+   - I created an HTTP API
+   - Added my Lambda from above for the integration
+   - Added a route with method: POST and path: feedback/
+7. Add the Form to the Website
+   - Again ChatGPT supplied the code for the form and js
+   - I also had ChatGPT update both the index.html and style.css code to make everything look the same.
+   - 
 
 ## Issues
 I had main issues with completing this.  
