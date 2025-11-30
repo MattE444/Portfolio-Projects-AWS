@@ -5,6 +5,7 @@ I almost skipped this project since I've technically already done something very
 
 ## AWS Services used
 - RDS
+- EC2
 
 ## Steps to complete:
 1. Create an RDS MySQL Database
