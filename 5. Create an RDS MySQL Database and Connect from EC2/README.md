@@ -1,45 +1,37 @@
-# Add Feedback form to website and include AWS storage and alerts
+# Create an RDS MySQL Database and Connect from EC2
 
 ## Introduction
-I decided I wanted to add a feedback form to my website so potential employers can tell me what sort of projects they would want to see.  Also, I suppose anybody who happens to stumble across my page can just send me a message if they want which is cool.  So ultimately I'm looking to alter the website to add a form where users can add their name, email, and comments with a send button.  All of this information would then be sent to both my phone as a text message, my email address and also be stored in a new S3 bucket.
+I almost skipped this project since I've technically already done something very similar in the project to setup my job tracker app.  Thats DynamoDB instead of RDS and was completed using Elastic Beanstalk so I figured I would do this anyway since there are some differences.  This should be easy.
 
 ## AWS Services used
-- S3
-- SES
-- Lambda
-- IAM
-- API Gateway
+- RDS
 
 ## Steps to complete:
-1. Create the S3 bucket
-   - I actually decided to just add a folder within the existing S3 bucket for my website.
-   - Named the folder website-feedback-submissions
-2. Create an SNS Topic for SMS
-   - OK this did not go well.
-   - See issues below for more details but we are eliminating the text message part of the project as its a lot more difficult than I would have guessed.
-3. SES setup
-   - Again I had to register my email address.  I was a little unsure if I was about to go down the same rabbithole as the text messages but thankfully no.
-   - Added my email address to SES, was sent a verification email and clicked on the link to complete the registration.
-4. Create the Lambda Function
-   - Created a simple lambda function
-   - Code (python) was added courtesy of ChatGPT again.  I did need to add my email address and S3 location for the submissions archive.
-5. Set Lambda IAM permissions
-   - Added both S3 and SES full access permissions to the role that was created when I created the Lambda function.
-6. Create API Gateway
-   - I created an HTTP API
-   - Added my Lambda from above for the integration
-   - Added a route with method: POST and path: feedback/
-7. Add the Form to the Website
-   - Again ChatGPT supplied the code for the form and js
-   - I also had ChatGPT update both the index.html and style.css code to make everything look the same.
-8. Test it all out
-   - I had some issues.  See below.  I did also get everything to eventually work.
+1. Create an RDS MySQL Database
+   - MySQL engine in Sandbox template
+   - Name: mydb
+   - db.t3.micro w/ 20 GB storage
+   - Default VPC + subnet
+   - New Security group
+2. Create an EC2 Instance
+   - Linux 2023 AMI
+   - t3.micro
+   - Use existing key-pair
+   - Default VPC + subnet
+   - New Security Group
+3. Security Group Configuration
+   - Add a new inbound rule for the newly created db sg
+   - type: MYSQL/Aurora
+   - source: newly created ec2 sg
+4. Install MySQL Client on EC2
+   - SSH via Powershell
+   - sudo dnf install mariadb105 -y
+5. Connect from EC2
+   - mysql -h mydb.ctamk6s82cdg.us-east-2.rds.amazonaws.com -u admin -p
+   - See screenshot.  Works!!
 
 ## Issues
-I had a few issues with completing this.  
-- My first inclination was to send myself a text everytime someone added feedback to my website.  That was waaaay more problematic then I would have expected.  I attempted to do this via the simple notiication service but the only way to do this would have been to create an origination identity and then register myself with the phone company, etc, etc.  I had no idea this would be this difficult and its frustrating that I can't have AWS just text me whenever I get a feedback notice but I guess at the same time I'm glad its not easy for just anyone to spam peoples phones with whatever they want.
-- Second issue was after I completed everything when I submitted the form nothing would happen.  I ended up having to add some access control options to CORS.  I'm not horribly familiar with CORS although I've been studying it.  Not sure why this wasn't part of the original process.  After adding the access controls though the form would submit...however....
-- My third issue was that after submitting the form it nothing happened.  No error messages but also no email and nothing appears in S3.  The problem it turns out was that I forgot to deploy the code in the lambda function.  Duh.  I was going to leave this off but I feel like its important because it happens.  Sometimes its the little things.
-- My fourth and last issue was after deploying the code above I received an error message that said the message was not sent.  This turned out to be a problem with the S3 bucket name.  Apparently you cannot direct the message to a folder within your bucket by just using the BUCKET_NAME = "matt-ellingsen.com/website-feedback-submissions/".  The bucket name is just the first part and I had to add a KEY_PREFIX = "website-feedback-submissions/" statement to make that work correctly.  Again something simple that I learned.
+One minor issue. When installing mysql on the EC2 instance I received an error message.  Apparently I needed to install mariadb instead of using the generic command of mysql since that would install an Oracle mysql and Amazon Linux 2023 does not ship Oracle MySQL client packages by default.  Made the switch and no big deal.
 
 ## Conclusion
+This was a fairly easy project that I completed quickly.  I enjoyed using command line more to ssh into the ec2.  I look forward to learning more of the powershell and bash commands.
