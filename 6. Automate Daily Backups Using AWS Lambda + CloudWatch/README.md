@@ -10,7 +10,7 @@ I'll create a Lambda function that backs up DynamoDB from my job tracker app and
 
 ## Steps to complete:
 1. Create an IAM policy.
-   - See attachments
+   - See attachment: DynamoDBBackupPolicy.png
    - Title: DynamoDBBackupPolicy
 2. Create an IAM role
    - Title: lambda-dynamodb-backup-role
@@ -18,7 +18,8 @@ I'll create a Lambda function that backs up DynamoDB from my job tracker app and
    - Also attached AWSLambdaBasicExecutionRole to allow Cloudwatch Logs
 3. Create Lambda Function
    - Title: FunctionforAutoBackups
-   - Attach 
+   - Attach new IAM role: lambda-dynamodb-backup-role
+   - Add python code for Lambda function.  See attachment: PythonCodeforBackupAutomation
 
 
 ## Issues
