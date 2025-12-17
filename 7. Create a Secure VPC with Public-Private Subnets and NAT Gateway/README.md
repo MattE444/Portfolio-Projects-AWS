@@ -50,7 +50,7 @@ Create a Secure VPC with Public/Private Subnets and NAT Gateway
 
 
 ## Issues
-No issues
+No issues but slow going as I continually rechecked myself and made sure I understood what I was doing.
 
 ## Conclusion
 Working with VPC's and allllll that that entails can be confusing and just a lot to understand.  I had to follow the directions a lot more than I'd like to make sure I was doing it right and stopped a lot to figure out why I was doing what I was doing.  I referenced and rewatched some videos from the AWS Certified Solutions Architect Associate course by Stephane Maarek quite a few times to better understand why I was doing what I was doing.
