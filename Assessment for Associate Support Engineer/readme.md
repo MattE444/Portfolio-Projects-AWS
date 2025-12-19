@@ -65,6 +65,15 @@ Hi - Thanks so much for choosing me to participate in the assessment!
    
 #### 3. Write a brief blog post for GitLab that explains what Git is and what it can do for you.
 
+   ### What is Git and How to Make it Work for You!!
+   by Matt Ellingsen
+
+   Have you ever wondered where the titles "Github" and "Gitlab" came from?  Did you just think it was a form of Git'er done?  Is Git a thing and how is it different from Gitlabs or Github?  If you've ever wondered any of these questions then sit back while I explain to you the answers to these questions plus many more!!
+   
+   #### What is Git?
+   At its core Git is a versional control system for code and other documents.  It allows you track changes to code and other files over time while also being able revert back to previous versions if necessary.  Git is referred to as a distributed system because users are able to download the entire remote repository to their local system.  They can then work on their own local repository while other users also making changes on their own local repositories.  Users use a series of commands to create branches, commmits and merges on their local repository as well as re-updating their code with the remote "master" repository until ultimately pushes changes back to the master repository.
+
+   #### What is Github and Gitlab?
    
 
 
@@ -73,10 +82,8 @@ Hi - Thanks so much for choosing me to participate in the assessment!
 
 
   - Q3 Tools and Sources:
-    - https://www.theodinproject.com/lessons/foundations-git-basics
-    - Google Gemini:
-      - prompt: Explain this image to me as it applies to git
-      - prompt: Explain the specific Git commands you would use to recreate this exact history.
+    - https://about.gitlab.com/blog/
+    - https://www.geeksforgeeks.org/git/what-is-git/
 
 
 
