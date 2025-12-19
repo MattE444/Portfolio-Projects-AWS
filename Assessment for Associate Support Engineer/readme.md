@@ -11,7 +11,7 @@ Hi - Thanks so much for choosing me to participate in the assessment!
    > getent passwd | cut -d ':' -f 1,6
    
    Why does this work?
-   The gentent command will fetch admin db entries and passwd command will steer us towards the user db.  These two commands will make up the basis of our search and the output will be a tablesque collection which includes the headers.
+   The gentent command will get admin db entries and passwd command will steer us towards the user db.  These two commands will make up the basis of our search and the output will be a tablesque collection which includes the headers.
 
          1. Username
          2. Password
