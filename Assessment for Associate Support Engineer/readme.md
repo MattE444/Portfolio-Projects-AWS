@@ -4,8 +4,7 @@
 Hi - Thanks so much for choosing me to participate in the assessment!
 
 ## Assessment Questions:
-1. Write a Ruby or Bash script that will print usernames of all users on a Linux system
-   together with their home directories.
+#### 1. Write a Ruby or Bash script that will print usernames of all users on a Linux system together with their home directories.
 
    The simpliest resolution to this question is actually a command:
    > getent passwd | cut -d ':' -f 1,6
@@ -32,8 +31,8 @@ Hi - Thanks so much for choosing me to participate in the assessment!
       - prompt: what are all of the fields that getent passwd includes?
 
      
-2. We have sent you an image named `git_history.v3.png` showing a Git commit graph.
-   What sequence of Git commands could have produced the commit graph depicted in the image?
+#### 2. We have sent you an image named `git_history.v3.png` showing a Git commit graph.
+####   What sequence of Git commands could have produced the commit graph depicted in the image?
 
    Prior to the start of the image the code would have to be somehow moved to the "main" in the image.  While there are many scenarios to why you would be accessing code the most common would be with the following command:
    - git clone \<url\> - This would clone an existing repository onto your local machine.
@@ -64,7 +63,7 @@ Hi - Thanks so much for choosing me to participate in the assessment!
       - prompt: Explain the specific Git commands you would use to recreate this exact history.
 
    
-3. Write a brief blog post for GitLab that explains what Git is and what it can do for you.
+#### 3. Write a brief blog post for GitLab that explains what Git is and what it can do for you.
 
    
 
@@ -81,10 +80,10 @@ Hi - Thanks so much for choosing me to participate in the assessment!
 
 
 
-5. Tell us about a recent issue you debugged or a problem you solved. How did you go about debugging it? What tools did you use? What was the outcome?
+#### 4. Tell us about a recent issue you debugged or a problem you solved. How did you go about debugging it? What tools did you use? What was the outcome?
 
 
-### Overall Tools and Sources:
+#### Overall Tools and Sources:
 - Markdown guide:
   - https://www.markdownguide.org/basic-syntax/
 - Github:
