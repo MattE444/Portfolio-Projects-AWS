@@ -74,20 +74,33 @@ Hi - Thanks so much for choosing me to participate in the assessment!
    At its core Git is a versional control system for code and other documents.  It allows you track changes to code and other files over time while also being able revert back to previous versions if necessary.  Git is referred to as a distributed system because users are able to download the entire remote repository to their local system.  They can then work on their own local repository while other users also making changes on their own local repositories.  Users use a series of commands to create branches, commmits and merges on their local repository as well as re-updating their code with the remote "master" repository until ultimately pushes changes back to the master repository.
 
    #### What is Github and Gitlab?
-   
-
-
-
-
+   These are two platforms that both provide git as well as other supporting tools.  They are very similar in that they are both spaces to store code and other information for developers to work on code.  They both offer free and paid plans.  They differ in that Github focuses on more of collaborative environment for sharing projects.  GitLab is geared for more of a enterprise solution with more built in features for their customers.  
 
 
   - Q3 Tools and Sources:
     - https://about.gitlab.com/blog/
     - https://www.geeksforgeeks.org/git/what-is-git/
+    - https://www.geeksforgeeks.org/git/introduction-to-github/
+    - https://forum.gitlab.com/t/github-vs-gitlab-why-should-i-choose-gitlab/93945
+    - https://www.bairesdev.com/blog/git-github-and-gitlab-whats-the-difference/
 
 
 
 #### 4. Tell us about a recent issue you debugged or a problem you solved. How did you go about debugging it? What tools did you use? What was the outcome?
+
+   The most recent project to have a major problem was while working on a project to use Elastic Beanstalk to upload a web application to AWS.  
+   
+   I had ChatGPT create for me the app I was going to use which is an application tracker app to keep track of job application and their statuses.  I had all of the folders structured correctly and zipped up appropriately but whenever I tried to run Elastic Beanstalk I would get an error message telling me that "Instance Deployment Failed".  Here are the steps I took to fix it.
+   1.  ChatGPT told me to check the eb-engine log.  Looking at this log I Was able to determine Elastic Beanstalk couldn't read my Procfile correctly.
+   2.  What's a Procfile?  I found out through google searches that a procfile is a file that defines the exact order, commands and tools to start an applications processes.
+   3.  My Procfile was very simple.  It contained one line:  web: gunicorn app:application
+   4.  Again I googled that line to figure out what it meant and found out that this is line is an attempt to create a webserver called Gunicorn.  The app:app at the end is referring to the name of the python file (app.py) and the second is the variable within the app.py file that refers to the flask object which in my case was this:  app = Flask(__name__)
+   5.  Easy fix then, right?  I just change the Procfile to be web: gunicorn app:app and tried to run Elastic Beanstalk again. This time the Instance deployment was completed successfully but the health says degraded. When I click on view causes it says: Following services are not running: web.
+   6.  At this point I wasn't sure where to turn.  The deployment had worked but the webserver Gunicorn had not started successfully.  I uploaded many of the files including the Procfile and app.py to ChatGPT and asked it to try to diagnose the issue.
+   7.  The issue as it turns out was that the app = Fask(__name__) was within a function called create_app().
+   8.  The solution was to add a line of code into app.py that was application = create_app() and then change the Procfile back to web: gunicorn app:application.  Now Elastic Beanstalk was able to create my job tracker app which I still use today.
+
+
 
 
 #### Overall Tools and Sources:
