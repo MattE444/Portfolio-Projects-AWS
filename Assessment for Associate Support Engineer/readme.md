@@ -6,11 +6,11 @@ Hi - Thanks so much for choosing me to participate in the assessment!
 ## Assessment Questions:
 #### 1. Write a Ruby or Bash script that will print usernames of all users on a Linux system together with their home directories.
 
-   The simpliest resolution to this question is actually a command:
+   The simplest resolution to this question is actually a command:
    > getent passwd | cut -d ':' -f 1,6
    
    Why does this work?
-   The gentent command will get admin db entries and passwd command will steer us towards the user db.  These two commands will make up the basis of our search and the output will be a tablesque collection which includes the headers.
+   The getent command will get admin db entries and passwd command will steer us towards the user db.  These two commands will make up the basis of our search and the output is a colon-delimited list of user records, where each field represents a specific attribute of the user.
 
          1. Username
          2. Password
@@ -38,7 +38,7 @@ Hi - Thanks so much for choosing me to participate in the assessment!
    - git clone \<url\> - This would clone an existing repository onto your local machine.
 
    Once the code is local you can make any changes you'd like.  Once changes have been made you would 'add' any changes to a staging area using this command:
-   - git add \<document\> - This will add the document to a list of staging files that have been added or altered.
+   - git add \<file\> - This will add the document to a list of staging files that have been added or altered.
    - git status - This will show all documents that have currently been added to the staging area as well as those that have been altered but not yet added to staging.
   
    Now we come to the left side of the image.  The first two white circles are the first two commits.  They would be done with following commands:
@@ -68,13 +68,13 @@ Hi - Thanks so much for choosing me to participate in the assessment!
    ### What is Git and How to Make it Work for You!!
    by Matt Ellingsen
 
-   Have you ever wondered where the titles "Github" and "Gitlab" came from?  Did you just think it was a form of Git'er done?  Is Git a thing and how is it different from Gitlabs or Github?  If you've ever wondered any of these questions then sit back while I explain to you the answers to these questions plus many more!!
+   Git is one of the most widely used tools in modern software development and has become the standard for controlling code changes. This post explains what Git is, how it works at a high level, and how platforms like GitHub and GitLab build on top of it.
    
    #### What is Git?
-   At its core Git is a versional control system for code and other documents.  It allows you track changes to code and other files over time while also being able revert back to previous versions if necessary.  Git is referred to as a distributed system because users are able to download the entire remote repository to their local system.  They can then work on their own local repository while other users also making changes on their own local repositories.  Users use a series of commands to create branches, commmits and merges on their local repository as well as re-updating their code with the remote "master" repository until ultimately pushes changes back to the master repository.
+   At its core Git is a version control system for code and other documents.  It allows you track changes to code and other files over time while also being able revert back to previous versions if necessary.  Git is referred to as a distributed system because users are able to download the entire remote repository to their local system.  They can then work on their own local repository while other users also making changes on their own local repositories.  Users use a series of commands to create branches, commits and merges on their local repository as well as re-updating their code with the remote "master" repository until ultimately pushes changes back to the main repository.
 
    #### What is Github and Gitlab?
-   These are two platforms that both provide git as well as other supporting tools.  They are very similar in that they are both spaces to store code and other information for developers to work on code.  They both offer free and paid plans.  They differ in that Github focuses on more of collaborative environment for sharing projects.  GitLab is geared for more of a enterprise solution with more built in features for their customers.  
+   These are two platforms that both provide git as well as other supporting tools.  They are very similar in that they are both spaces to store code and other information for developers to work on code.  They both offer free and paid plans.  GitHub and GitLab both provide hosted Git repositories and collaboration tools. GitLab differentiates itself by offering an integrated DevSecOps platform that includes CI/CD, security scanning, and project management features in a single application.
 
 
   - Q3 Tools and Sources:
@@ -83,6 +83,8 @@ Hi - Thanks so much for choosing me to participate in the assessment!
     - https://www.geeksforgeeks.org/git/introduction-to-github/
     - https://forum.gitlab.com/t/github-vs-gitlab-why-should-i-choose-gitlab/93945
     - https://www.bairesdev.com/blog/git-github-and-gitlab-whats-the-difference/
+    - ChatGPT (OpenAI):
+        - Prompt: Here is my submission for the Gitlab assessment for the job I applied to. Let me know if you think I need to make any changes to it.
 
 
 
@@ -100,6 +102,8 @@ Hi - Thanks so much for choosing me to participate in the assessment!
    7.  The issue as it turns out was that the app = Flask(__name__) was within a function called create_app().
    8.  The solution was to add a line of code into app.py that was application = create_app() and then change the Procfile back to web: gunicorn app:application.  Now Elastic Beanstalk was able to create my job tracker app which I still use today.
 
+   Throughout the process, I used ChatGPT and documentation as reference tools, but validated changes through logs and deployment results to confirm the actual root cause.
+
 
 
 
@@ -109,6 +113,8 @@ Hi - Thanks so much for choosing me to participate in the assessment!
 - Github:
   - https://github.com/MattE444/Portfolio-Projects-AWS/edit/main/Assessment%20for%20Associate%20Support%20Engineer/readme.md
     
+#### AI Usage Disclosure
+- Google Gemini and ChatGPT were used as reference tools to explain commands, concepts, and error messages. All answers were written in my own words and validated through documentation and testing.
 
 
 
