@@ -36,10 +36,10 @@ Hi - Thanks so much for choosing me to participate in the assessment!
    What sequence of Git commands could have produced the commit graph depicted in the image?
 
    Prior to the start of the image the code would have to be somehow moved to the "main" in the image.  While there are many scenarios to why you would be accessing code the most common would be with the following command:
-   - git clone <url> - This would clone an existing repository onto your local machine.
+   - git clone \<url\> - This would clone an existing repository onto your local machine.
 
    Once the code is local you can make any changes you'd like.  Once changes have been made you would 'add' any changes to a staging area using this command:
-   - git add <document> - This will add the document to a list of staging files that have been added or altered.
+   - git add \<document\> - This will add the document to a list of staging files that have been added or altered.
    - git status - This will show all documents that have currently been added to the staging area as well as those that have been altered but not yet added to staging.
   
    Now we come to the left side of the image.  The first two white circles are the first two commits.  They would be done with following commands:
