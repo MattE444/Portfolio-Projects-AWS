@@ -97,7 +97,7 @@ Hi - Thanks so much for choosing me to participate in the assessment!
    4.  Again I googled that line to figure out what it meant and found out that this is line is an attempt to create a webserver called Gunicorn.  The app:app at the end is referring to the name of the python file (app.py) and the second is the variable within the app.py file that refers to the flask object which in my case was this:  app = Flask(__name__)
    5.  Easy fix then, right?  I just change the Procfile to be web: gunicorn app:app and tried to run Elastic Beanstalk again. This time the Instance deployment was completed successfully but the health says degraded. When I click on view causes it says: Following services are not running: web.
    6.  At this point I wasn't sure where to turn.  The deployment had worked but the webserver Gunicorn had not started successfully.  I uploaded many of the files including the Procfile and app.py to ChatGPT and asked it to try to diagnose the issue.
-   7.  The issue as it turns out was that the app = Fask(__name__) was within a function called create_app().
+   7.  The issue as it turns out was that the app = Flask(__name__) was within a function called create_app().
    8.  The solution was to add a line of code into app.py that was application = create_app() and then change the Procfile back to web: gunicorn app:application.  Now Elastic Beanstalk was able to create my job tracker app which I still use today.
 
 
