@@ -7,7 +7,8 @@ Hi - Thanks so much for choosing me to participate in the assessment!
 1. Write a Ruby or Bash script that will print usernames of all users on a Linux system
    together with their home directories.
 
-   The simpliest resolution to this question is actually a command:  getent passwd | cut -d ':' -f 1,6
+   The simpliest resolution to this question is actually a command:
+   > getent passwd | cut -d ':' -f 1,6
    Why does this work?
    The gentent command will fetch admin db entries and passwd command will steer us towards the user db.  These two commands will make up the basis of our search and the output will be a tablesque collection which includes the headers.
 
