@@ -40,26 +40,42 @@ The very simple application is containerized with Docker, stored in Amazon Elast
     > docker push <ACCOUNT_ID>.dkr.ecr.us-east-2.amazonaws.com/my-app:latest  
 
 4. Kubernetes Deployment
-   > apiVersion: apps/v1  
-kind: Deployment  
-metadata:  
-  name: my-app  
-spec:  
-  replicas: 2  
-  selector:  
-    matchLabels:  
-      app: my-app  
-  template:  
+    > apiVersion: apps/v1  
+    kind: Deployment  
     metadata:  
-      labels:  
-        app: my-app  
+      name: my-app  
     spec:  
-      containers:  
-      - name: my-app  
-        image: <ACCOUNT_ID>.dkr.ecr.us-east-2.amazonaws.com/my-app:latest  
-        ports:  
-        - containerPort: 3000  
+      replicas: 2  
+      selector:  
+        matchLabels:  
+          app: my-app  
+      template:  
+        metadata:  
+          labels:  
+            app: my-app  
+        spec:  
+          containers:  
+          - name: my-app  
+            image: <ACCOUNT_ID>.dkr.ecr.us-east-2.amazonaws.com/my-app:latest  
+            ports:  
+            - containerPort: 3000
 
+    Apply:  kubectl apply -f deployment.yaml
+
+   5. Service Exposure
+      > apiVersion: v1
+kind: Service  
+metadata:  
+  name: my-app-service  
+spec:  
+  type: LoadBalancer  
+  selector:  
+    app: my-app  
+  ports:  
+    - port: 80  
+      targetPort: 3000  
+
+Apply: kubectl apply -f service.yaml
 
 
 ## Issues
