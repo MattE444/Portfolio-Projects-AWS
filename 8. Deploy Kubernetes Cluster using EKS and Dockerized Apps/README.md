@@ -62,7 +62,7 @@ The very simple application is containerized with Docker, stored in Amazon Elast
 
     Apply:  kubectl apply -f deployment.yaml
 
-   5. Service Exposure
+5. Service Exposure
       > apiVersion: v1
 kind: Service  
 metadata:  
@@ -72,11 +72,14 @@ spec:
   selector:  
     app: my-app  
   ports:  
-    - port: 80  
+    port: 80  
       targetPort: 3000  
 
 Apply: kubectl apply -f service.yaml
 
 
 ## Issues
-No issues but slow going as I continually rechecked myself and made sure I understood what I was doing.
+1. I ran into a CLI syntax issue while creating an ECR repository and resolved it by verifying valid ECR operations using aws ecr help, which reinforced the importance of exact subcommand usage in AWS CLI.  create-repository NOT create respository.
+2. Similarly I resolved an ECR authentication issue caused by an incorrectly formatted registry URI. ECR requires a raw 12-digit AWS account ID with no separators and I had added the dashes in. Once corrected, Docker authentication succeeded.
+
+   
